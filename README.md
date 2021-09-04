@@ -3,7 +3,7 @@
 ## Screenshot
 ![alt text](https://github.com/omsheal/EmpoweredDetector/raw/main/screenshot.png)
 
-NOTE: This screenshot shows commands and an example of announcement in the party.
+**NOTE:** This screenshot shows commands and an example of announcement in the party.
 
 ## Commands
 `/ed` or `/empowerdetector`
