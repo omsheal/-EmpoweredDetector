@@ -1,3 +1,4 @@
+.gitattributes  export-ignore
 README.md       export-ignore
 .git*           export-ignore
 .pkgmeta*       export-ignore
