@@ -1,2 +1,3 @@
 .git*           export-ignore
+.pkgmeta*       export-ignore
 README.md       export-ignore
