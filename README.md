@@ -14,7 +14,7 @@ By default, it's **enabled** and configured to announce in the **party**.
 
 ## FAQ
 
-> ***Why should I use EmpowerDetector?***
+> ***Why should I use EmpoweredDetector?***
 > 
 > To catch those trollers who keep wasting Empowerment on trashes in Torghast or just use it for historical purposes.
 
