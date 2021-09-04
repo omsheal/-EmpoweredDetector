@@ -1,0 +1,9 @@
+## Interface: 90100
+## Title: Empowered Detector
+## Author: Oms-Lightbringer
+## Version: v1
+## Notes: This addon will announce when someone casts Activate Empowerment in Torghast.
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariablesPerCharacter: EmpoweredDetector_Enabled, EmpoweredDetector_Mode
+EmpoweredDetector.lua
