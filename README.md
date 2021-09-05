@@ -24,6 +24,6 @@ By default, it's **enabled** and configured to announce in the **party**.
 
 > ***Ok, where can I download it?***
 >
-> 1) [CurseForge](https://www.curseforge.com/wow/addons/empowereddetector) [pending approval by a moderator]
+> 1) [CurseForge](https://www.curseforge.com/wow/addons/empowereddetector)
 > 
-> 2) [Github Release](https://github.com/omsheal/EmpoweredDetector/releases) [available now]
+> 2) [Github Release](https://github.com/omsheal/EmpoweredDetector/releases)
