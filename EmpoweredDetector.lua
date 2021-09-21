@@ -60,7 +60,13 @@ EmpoweredDetectorFrame:SetScript("OnEvent", function( self, event, ... )
 end)
 
 function EmpoweredDetectorFrame:PLAYER_ENTERING_WORLD()
-    print("|cffFF4500Empowered|cff00ffffDetector|r loaded!")
+	if EmpoweredDetector_Enabled == true and EmpoweredDetectorFrame:IS_IN_TORGHAST() then
+		-- Register if this detector is enabled and the player is in Torghast.
+		EmpoweredDetectorFrame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
+		print("|cffFF4500Empowered|cff00ffffDetector|r Loaded!")
+	else
+		EmpoweredDetectorFrame:UnregisterEvent("UNIT_SPELLCAST_SUCCEEDED")
+	end
 end
 
 function EmpoweredDetectorFrame:ADDON_LOADED()
@@ -73,18 +79,11 @@ function EmpoweredDetectorFrame:ADDON_LOADED()
 	if EmpoweredDetector_Mode == nil then
 		EmpoweredDetector_Mode = "GROUP"
 	end
-
-	-- Register if this detector is enabled.
-	if EmpoweredDetector_Enabled == true then
-		EmpoweredDetectorFrame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
-	else
-		EmpoweredDetectorFrame:UnregisterEvent("UNIT_SPELLCAST_SUCCEEDED")
-	end
 end
 
 function EmpoweredDetectorFrame:UNIT_SPELLCAST_SUCCEEDED(unitTarget, _, spellID)
 	-- Ignore everything except for a successful cast of Activate Empowerment.
-	if EmpoweredDetector_Enabled then
+	if EmpoweredDetector_Enabled and EmpoweredDetectorFrame:IS_IN_TORGHAST() then
 		if empoweredSpells[spellID] then
 			local name = GetUnitName(unitTarget, true)
 			EmpoweredDetectorFrame:Announce("Empowered Detector: "..name.." cast "..GetSpellLink(spellID).." on the party!")
@@ -115,4 +114,16 @@ function EmpoweredDetectorFrame:Announce(msg)
 	end
 
 	SendChatMessage(msg, mode)
+end
+
+function EmpoweredDetectorFrame:IS_IN_TORGHAST()
+	local name, instanceType, _, _, _, _, _, _ = GetInstanceInfo()
+	local i = string.find(string.lower(name), "torghast")
+	if i == nil then
+		return false
+	end
+	if IsInInstance() then
+		return true
+	end
+	return false
 end
